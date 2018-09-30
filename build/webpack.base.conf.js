@@ -1,4 +1,5 @@
 'use strict'
+var webpack = require('webpack')
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
@@ -66,6 +67,14 @@ module.exports = {
         }
       }
     ]
+  },
+  plugins: [
+     new webpack.ProvidePlugin({
+       jQuery: 'jquery',
+       $: 'jquery',  
+       jquery: 'jquery'
+     })
+  ]
   },
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue

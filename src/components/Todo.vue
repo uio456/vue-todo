@@ -1,3 +1,4 @@
+<template>
   <div class="container" id="app">
     <h1 class="text-center">To Do List</h1>
     <div class="panel panel-info">
@@ -45,9 +46,38 @@
       </table>
       
     </div>
-    <h4 id="end" class="text-center"></h4>
-  </div>
+      <h4 id="end" class="text-center"></h4>
+    </div>
 </div>
+</template>
+<script>
+  export default {
+    name: 'Todo',
+    data: function() {
+      return {
+        todos: [],
+        newTodo:''
+        //     newTodo 綁定在input create button 上
+      };
+    },
+    methods: {
+      createTodo: function() {
+        if(!this.newTodo){
+         reture 
+        }
+        this.todos.push({
+          title:this.newTodo,
+          completed: false
+        });
+        this.newTodo = '';
+      },
+      deleteTodo: function(index) {
+        this.todos.splice(index, 1);
+      }
+    }
+  };
+
+</script>
 
 <style>
   a:hover {
